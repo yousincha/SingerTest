@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="exam.test.SingerMapper">
+
+<insert id="insertSinger">
+	insert into singer(name,member)
+	values(#{name}, #{member} )
+
+</insert>
+
+<select id="getSingerCount" resultType="int">
+	select count(*)
+	from singer
+</select>
+
+<select id="getSingerMember" resultType="int">
+	select member
+	from singer
+	where name=#{name}
+</select>
+
+<select id="getSingers" resultType="Singer">
+	select *
+	from singer
+	where member=#{member}
+</select>
+
+<insert id="updateSinger">
+	update singer
+	set member=#{member}
+	where name=#{name}
+</insert>
+
+<delete id="deleteSinger">
+	delete
+	from singer
+	where name=#{name}
+</delete>
+
+<select id="getSinger1" resultType="String">
+	select name
+	from singer
+	where member=#{member} and name=#{name}
+</select>
+
+</mapper>
